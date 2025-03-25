@@ -18,6 +18,9 @@ export class User {
   role: 'user' | 'admin';
 
   @Column({ default: false })
+  isVerified: boolean;
+
+  @Column({ default: false })
   vip_status: boolean;
 
   @Column({ type: 'date', nullable: true })

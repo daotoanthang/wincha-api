@@ -21,9 +21,13 @@ export class UsersService {
   }
 
   // Thêm user mới
-  create(userData: Partial<User>): Promise<User> {
+  async create(userData: Partial<User>): Promise<User> {
     const newUser = this.usersRepository.create(userData);
-    return this.usersRepository.save(newUser);
+    try {
+      return await this.usersRepository.save(newUser);
+    } catch (error) {
+      throw error;
+    }
   }
 
   // Cập nhật user
